@@ -32,7 +32,6 @@ const upload = multer({
 // );
 
 // exports.checkUserID = (req, res, next, val) => {
-//   console.log('User ID', val);
 //   const user = users.find((user) => user._id === req.params.id);
 
 //   if (!user) {

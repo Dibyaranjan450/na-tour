@@ -44,7 +44,6 @@ const upload = multer({
 ////////////////////////// Middlewares //////////////////////////
 
 // exports.checkID = (req, res, next, val) => {
-//   console.log('idVal', val);
 //   const tour = tours.find((tour) => tour.id === req.params.id * 1);
 
 //   if (!tour) {
@@ -173,7 +172,6 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
 
   // if (req.query.sort) {
   //   const sortBy = req.query.sort.split(',').join(' ');
-  //   console.log(sortBy);
   //   query = query.sort(sortBy);
   // } else {
   //   query = query.sort('-maxGroupSize');

@@ -36,14 +36,16 @@ exports.protected = async (req, res, next) => {
   }
 
   if (!token) {
-    return next(new AppError('Authorization failed! Please pass the token', 400));
+    return next(
+      new AppError('Authorization failed! Please pass the token', 400)
+    );
   }
 
   let decode;
 
   try {
     decode = jwt.verify(token, process.env.JWT_SECRET);
-    console.log('decode ', decode);
+    // console.log('decode ', decode);
   } catch (err) {
     return next(new AppError('invalid or malformed signature', 401));
   }
@@ -61,7 +63,11 @@ exports.protected = async (req, res, next) => {
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
-    console.log('roles ', roles);
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new AppError('You do not have permission to perform this action', 403)
+      );
+    }
 
     next();
   };
@@ -205,12 +211,11 @@ exports.resetPassword = async (req, res, next) => {
       passwordResetToken,
       passwordTokenValidTime: { $gt: Date.now() },
     });
+    // console.log(user);
 
     if (!user) {
       return next(new AppError('Token invalid or expired!', 400));
     }
-
-    console.log(user);
 
     user.password = password;
     user.passwordConfirm = passwordConfirm;

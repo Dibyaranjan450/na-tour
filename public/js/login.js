@@ -17,7 +17,7 @@ const login = async (email, password) => {
     })
       .then((response) => response.json())
       .then((json) => json);
-    console.log(res);
+    // console.log(res);
 
     if (res.status === 'success') {
       showAlert('success', 'Logged in successfully');
@@ -49,7 +49,7 @@ const signup = async (name, email, password, passwordConfirm) => {
     })
       .then((response) => response.json())
       .then((json) => json);
-    console.log(res);
+    // console.log(res);
 
     if (res.status === 'success') {
       showAlert('success', 'Signed in successfully');
