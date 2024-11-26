@@ -5,7 +5,7 @@ const logoutBtn = document.querySelector('.nav__el--logout');
 
 const login = async (email, password) => {
   try {
-    const res = await fetch('http://localhost:4000/api/v1/users/login/', {
+    const res = await fetch('/api/v1/users/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const login = async (email, password) => {
 
 const signup = async (name, email, password, passwordConfirm) => {
   try {
-    const res = await fetch('http://localhost:4000/api/v1/users/signup', {
+    const res = await fetch('/api/v1/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -97,14 +97,14 @@ if (loginButton) {
 // LOGOUT FUNCTION //
 if (logoutBtn) {
   logoutBtn.addEventListener('click', async () => {
-    fetch('http://localhost:4000/api/v1/users/logout', {
+    fetch('/api/v1/users/logout', {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((data) => {
         if (data.status === 'success') {
           // location.reload(true);
-          location.href = 'http://localhost:4000/';
+          location.href = '/';
         }
       })
       .catch((error) => {

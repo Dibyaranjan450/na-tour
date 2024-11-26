@@ -3,7 +3,7 @@ const userPasswordForm = document.querySelector('.form-user-password');
 
 // type is either 'password' or 'data'
 const updateSettings = async (data, type) => {
-  const url = `http://localhost:4000/api/v1/users/${
+  const url = `/api/v1/users/${
     type === 'password' ? 'updatePassword' : 'updateMe'
   }`;
 
