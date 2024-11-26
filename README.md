@@ -22,7 +22,7 @@ $ git clone https://github.com/Dibyaranjan450/na-tours.git
 Visit the page at :
 
 ```
-https://audioarchive.netlify.app/
+[https://na-tours.com/](https://na-tours-dibya-nayaks-projects.vercel.app/)
 ```
 
 ## Contributor
