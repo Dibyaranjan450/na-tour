@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use('/', viewsRouter);
+
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
